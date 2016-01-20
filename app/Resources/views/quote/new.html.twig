@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Quote creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" data-url="{{ path('authorquote_get_authors') }}"/>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('authorquote_quote_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

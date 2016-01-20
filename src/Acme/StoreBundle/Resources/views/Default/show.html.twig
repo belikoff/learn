@@ -1,0 +1,19 @@
+{% extends 'AcmeStoreBundle::base.html.twig' %}
+{% block child %}
+    
+    <table border='1'>
+        <tr>
+            <th>Id</th><th>Название</th><th>Цена</th><th>Описание</th><th>Количество</th><th>Категория</th>
+        </tr>
+        <tr>
+            
+            <td>{{ product.id}}</td>
+            <td>{{ product.name}}</td>
+            <td>{{ product.price}}</td>
+            <td>{{ product.description}}</td>
+            <td>{{ product.count}}</td>
+            <td>{{ product.category.name}}</td>
+            {#<td>{{ product.createdValue}}</td>#}
+        </tr>
+    </table>
+{% endblock %}

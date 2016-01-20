@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ authorQuote.name }}:: цитаты</h1>
+    <table  class="table">
+        <tbody>
+            <tr>
+                <th>{{ authorQuote.name }}</th>
+            </tr>
+            {% for quote in authorQuote.quotes %}
+                <tr>
+                    <td>{{ quote.text}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('authorquote_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('authorquote_edit', { 'id': authorQuote.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

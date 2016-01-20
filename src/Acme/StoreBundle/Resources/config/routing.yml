@@ -1,0 +1,26 @@
+acme_store_homepage:
+    path:     /
+    defaults: { _controller: AcmeStoreBundle:Default:index }
+acme_store_create:
+    path:     /create
+    defaults: { _controller: AcmeStoreBundle:Default:create }
+acme_store_show:
+    path:     /show/{id}
+    defaults: { _controller: AcmeStoreBundle:Default:show }
+    requirements:
+        id: \d+
+acme_store_update:
+    path:     /update/{id}
+    defaults: { _controller: AcmeStoreBundle:Default:update }
+    requirements:
+        id: \d+        
+acme_store_fun:
+    path:     /fun/{number}.{_format}
+    defaults: { _controller: AcmeStoreBundle:Fun:index, number:7}
+acme_store_advanced:
+    path: /advanced/{year}/{culture}/{title}.{_format}
+    defaults: {_controller: AcmeStoreBundle:Advanced:advanced}
+    requirements:
+        culture: ru|en
+        year: \d+
+        _format: html|php

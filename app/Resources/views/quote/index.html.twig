@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Цитаты</h1>
+    <table class="table quote_table">
+        <thead>
+            <tr>
+            {# sorting of properties based on query components #}
+                <th>{{ knp_pagination_sortable(pagination, 'Text', 'q.text') }}</th>
+                <th{% if pagination.isSorted('a.Name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name') }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quote in pagination %}
+            <tr>
+                {#<td><a href="{{ path('authorquote_quote_show', { 'id': quote.id }) }}">{{ quote.id }}</a></td>#}
+                <td><a href="{{ path('authorquote_quote_show', { 'id': quote.id }) }}" title="{{ quote.text }}">{{ quote.text | truncate(50)}}</a></td>
+                <td><a href="{{ path('authorquote_show', { 'id': quote.author.id }) }}">
+                    {{ quote.author.name }}</td></a>
+                <td>
+                    <a href="{{ path('authorquote_quote_edit', { 'id': quote.id }) }}" class="btn btn-default" role="button">редактировать</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+    <ul>
+        <li>
+            <a href="{{ path('authorquote_quote_new') }}" class="btn btn-default" role="button">Создать новую цитату</a>
+        </li>
+    </ul>
+{% endblock %}

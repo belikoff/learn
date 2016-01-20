@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>AuthorQuote list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for authorQuote in authorQuotes %}
+            <tr>
+                <td><a href="{{ path('authorquote_show', { 'id': authorQuote.id }) }}">{{ authorQuote.id }}</a></td>
+                <td>{{ authorQuote.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('authorquote_show', { 'id': authorQuote.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('authorquote_edit', { 'id': authorQuote.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('authorquote_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

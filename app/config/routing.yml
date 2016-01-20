@@ -1,0 +1,31 @@
+acme_store_quote:
+    resource: "@AcmeStoreBundle/Controller/QuoteController.php"
+    type:     annotation
+
+acme_store_author_quote:
+    resource: "@AcmeStoreBundle/Controller/AuthorQuoteController.php"
+    type:     annotation
+
+acme_store:
+    resource: "@AcmeStoreBundle/Resources/config/routing.yml"
+    prefix:   /acme
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+login:
+    path:   /login
+    defaults:  { _controller: AcmeSecurityBundle:Security:login }
+login_check:
+    path:   /login_check
+    defaults:  { _controller: AcmeSecurityBundle:Security:login_check }
+registration:
+    path: /registration
+    defaults:  { _controller: AcmeSecurityBundle:Security:registration }
+logout:
+    path: /logout
+static_page:
+    path: /about
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'AppBundle:Static:about.html.twig'
