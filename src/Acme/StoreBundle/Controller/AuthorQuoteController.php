@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Acme\StoreBundle\Entity\AuthorQuote;
 use Acme\StoreBundle\Form\AuthorQuoteType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * AuthorQuote controller.
@@ -27,11 +28,32 @@ class AuthorQuoteController extends Controller
         $term = $request->query->get('term', null);
 
         $em = $this->getDoctrine()->getManager();
-
+        $dumper = new VarDumper();
+        $dumper->dump($term);
+        
         $authors = $em->getRepository('AcmeStoreBundle:AuthorQuote')->findByTerm($term);
-
-        return new JsonResponse($authors);
+        //$dumper->dump($authors);
+        $results = [];
+        foreach ($authors as $author){
+            $results[] = [
+                'id' => $author->getId(),
+                'name' => $author->getName(),
+                'label' => $author->getName(),
+            ];
+        }
+        return new JsonResponse($results);
     }
+    /**
+     * Get author from autocomplete list.
+     *
+     * @Route("/authorquote_get_author", name="authorquote_get_author")
+     */    
+    public function getAuthorByIdAction($id = null)
+    {
+        $author = $this->getDoctrine()->getRepository('AcmeStoreBundle:AuthorQuote')->find($id);
+
+        return new Response($author->getName());
+    }    
     /**
      * Lists all AuthorQuote entities.
      *

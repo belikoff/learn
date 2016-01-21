@@ -2,6 +2,8 @@
 
 namespace Acme\StoreBundle\Repository;
 
+use Symfony\Component\VarDumper\VarDumper;
+
 /**
  * AuthorQuoteRepository
  *
@@ -12,9 +14,16 @@ class AuthorQuoteRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findByTerm($term)
     {
-        return $this->getEntityManager()
+        $dumper = new VarDumper();
+        $q = $this->getEntityManager()
+            ->createQuery('SELECT a FROM AcmeStoreBundle:AuthorQuote a WHERE a.name LIKE :name')
+            ->setParameter('name', '%'.$term.'%');
+        $dumper->dump($q);
+        
+        return $q->getResult();
+        /*return $this->getEntityManager()
             ->createQuery('SELECT a FROM AcmeStoreBundle:AuthorQuote a WHERE a.name LIKE :name')
             ->setParameter('name', $term.'%')
-            ->getResult();
+            ->getResult();*/
     }
 }

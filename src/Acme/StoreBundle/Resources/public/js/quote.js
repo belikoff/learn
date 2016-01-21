@@ -8,16 +8,11 @@ $(function(){
             $('.quote_block-container').html(data);
         });
     });
-
-    //quote_author
-    //console.log($('#quote').parent().find('input[type=submit]').data('url'));
-    $( "#quote_author" ).autocomplete({
-      source: $('#quote').parent().find('input[type=submit]').data('url'),
-      minLength: 2,
-        select: function( event, ui ) {
-            $('#' + $this.data('id')).val(ui.item.id);
-        }
-    });
+    
+    $('#quote_author').autocompleter({
+    url_list: $('#quote').parent().find('input[type=submit]').data('url'),
+    url_get: $('#url_get_author').data('url')
+});
 });
 
 

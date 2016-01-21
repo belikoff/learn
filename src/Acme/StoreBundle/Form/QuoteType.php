@@ -6,21 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use Acme\StoreBundle\Form\DataTransformer\EntityToNameTransformer;
+use PUGX\AutocompleterBundle\Form\Type\AutocompleteType;
 
 class QuoteType extends AbstractType
 {
-    //private $om;
- 
-    /*public function __construct(ObjectManager $om)
-    {
-        $this->om = $om;
-    }*/
 
     /**
      * @param FormBuilderInterface $builder
@@ -28,14 +17,10 @@ class QuoteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //$class = $options['class'];
-        //$transformer = new EntityToNameTransformer($this->om, $class);
-        //$builder->addViewTransformer($transformer);
         $builder
             ->add('text')
-            ->add('author', EntityType::class, ['class' => 'AcmeStoreBundle:AuthorQuote', 'choice_label' => 'getName' ])
-            //->add('author', TextType::class);
-        ;
+            //->add('author', EntityType::class, ['class' => 'AcmeStoreBundle:AuthorQuote', 'choice_label' => 'getName' ])
+            ->add('author',AutocompleteType::class,['class' => 'AcmeStoreBundle:AuthorQuote', 'label' => 'Автор' ]);
     }
     
     /**
@@ -48,24 +33,5 @@ class QuoteType extends AbstractType
         ));
     }
 
-   /* public function buildView(FormView $view, FormInterface $form, array $options)
-    {
-        $view->vars['update_route'] = $options['update_route'];
-    }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setRequired(array('class', 'update_route'));
-    }*/
-
-    /*public function getParent()
-    {
-        return 'hidden';
-    }*/
-
-    /*public function getName()
-    {
-        return 'autocomplete_entity';
-    }*/
 
 }

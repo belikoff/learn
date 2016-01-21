@@ -42,9 +42,14 @@
             {% block javascripts %}{% endblock %}
         </div>
         {% block script %}
-            <script src="{{ asset('bundles/acmestore/js/jquery-1.12.0.min.js') }}"></script>            
+            <script src="{{ asset('bundles/acmestore/js/jquery-1.12.0.min.js') }}"></script>           
             <script src="{{ asset('bundles/acmestore/js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('bundles/acmestore/js/jquery-ui.min.js') }}"></script>
+            {% javascripts 
+            '@PUGXAutocompleterBundle/Resources/public/js/autocompleter-jqueryui.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
             <script src="{{ asset('bundles/acmestore/js/quote.js') }}"></script>
         {% endblock %}        
     </body>

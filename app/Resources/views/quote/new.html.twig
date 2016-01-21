@@ -6,6 +6,7 @@
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" data-url="{{ path('authorquote_get_authors') }}"/>
+        <input type="hidden" id="url_get_author" data-url="{{ path('authorquote_get_author') }}" />
     {{ form_end(form) }}
 
     <ul>
