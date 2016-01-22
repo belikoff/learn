@@ -53,6 +53,7 @@
           </div>
           <div class="collapse navbar-collapse" id="admin-navbar-collapse-1">
               {{ knp_menu_render('AcmeStoreBundle:Builder:mainMenu', {'template': 'AcmeStoreBundle::knp_menu.html.twig'}) }}
+              {% include 'AcmeStoreBundle::login_menu.html.twig' %}
           </div>
   </div>
 
