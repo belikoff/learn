@@ -1,2 +1,0 @@
-#parameters:
-    #acme.base_template: AcmeStoreBundle::base.html.twig

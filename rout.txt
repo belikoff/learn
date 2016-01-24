@@ -25,12 +25,12 @@
   authorquote_show           GET        ANY      ANY    /authorquote/{id}                                  
   authorquote_edit           GET|POST   ANY      ANY    /authorquote/{id}/edit                             
   authorquote_delete         DELETE     ANY      ANY    /authorquote/{id}                                  
-  acme_store_homepage        ANY        ANY      ANY    /acme/                                             
-  acme_store_create          ANY        ANY      ANY    /acme/create                                       
-  acme_store_show            ANY        ANY      ANY    /acme/show/{id}                                    
-  acme_store_update          ANY        ANY      ANY    /acme/update/{id}                                  
-  acme_store_fun             ANY        ANY      ANY    /acme/fun/{number}.{_format}                       
-  acme_store_advanced        ANY        ANY      ANY    /acme/advanced/{year}/{culture}/{title}.{_format}  
+  Beluha_store_homepage        ANY        ANY      ANY    /Beluha/                                             
+  Beluha_store_create          ANY        ANY      ANY    /Beluha/create                                       
+  Beluha_store_show            ANY        ANY      ANY    /Beluha/show/{id}                                    
+  Beluha_store_update          ANY        ANY      ANY    /Beluha/update/{id}                                  
+  Beluha_store_fun             ANY        ANY      ANY    /Beluha/fun/{number}.{_format}                       
+  Beluha_store_advanced        ANY        ANY      ANY    /Beluha/advanced/{year}/{culture}/{title}.{_format}  
   homepage                   ANY        ANY      ANY    /                                                  
   app_lucky_number           ANY        ANY      ANY    /lucky/number/                                     
   login                      ANY        ANY      ANY    /login                                             
@@ -70,12 +70,12 @@
   authorquote_show           GET        ANY      ANY    /authorquote/{id}                                  
   authorquote_edit           GET|POST   ANY      ANY    /authorquote/{id}/edit                             
   authorquote_delete         DELETE     ANY      ANY    /authorquote/{id}                                  
-  acme_store_homepage        ANY        ANY      ANY    /acme/                                             
-  acme_store_create          ANY        ANY      ANY    /acme/create                                       
-  acme_store_show            ANY        ANY      ANY    /acme/show/{id}                                    
-  acme_store_update          ANY        ANY      ANY    /acme/update/{id}                                  
-  acme_store_fun             ANY        ANY      ANY    /acme/fun/{number}.{_format}                       
-  acme_store_advanced        ANY        ANY      ANY    /acme/advanced/{year}/{culture}/{title}.{_format}  
+  Beluha_store_homepage        ANY        ANY      ANY    /Beluha/                                             
+  Beluha_store_create          ANY        ANY      ANY    /Beluha/create                                       
+  Beluha_store_show            ANY        ANY      ANY    /Beluha/show/{id}                                    
+  Beluha_store_update          ANY        ANY      ANY    /Beluha/update/{id}                                  
+  Beluha_store_fun             ANY        ANY      ANY    /Beluha/fun/{number}.{_format}                       
+  Beluha_store_advanced        ANY        ANY      ANY    /Beluha/advanced/{year}/{culture}/{title}.{_format}  
   homepage                   ANY        ANY      ANY    /                                                  
   app_lucky_number           ANY        ANY      ANY    /lucky/number/                                     
   login                      ANY        ANY      ANY    /login                                             

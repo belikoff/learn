@@ -1,0 +1,2 @@
+#parameters:
+    #Beluha.base_template: BeluhaStoreBundle::base.html.twig

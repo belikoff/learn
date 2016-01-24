@@ -7,7 +7,7 @@ services:
     dump:
         class: Symfony\Component\VarDumper\VarDumper  
     foo:
-        class: AppBundle\Service\FooService
+        class: Beluha\AppBundle\Service\FooService
         ###arguments: ["@dump"]
         arguments: ["@request_stack"]
         #calls:
@@ -18,17 +18,17 @@ services:
             ###- {name: monolog.logger}
     
     #added_quote:
-        #class: Acme\StoreBundle\Entity\Quote
+        #class: Beluha\StoreBundle\Entity\Quote
         #calls:
             #- [setByAdded, ["@service_container"]]
         #public: false
     #smtc.main.form.autocomplete_entity_type:
-        #class: Acme\StoreBundle\Form\QuoteType
+        #class: Beluha\StoreBundle\Form\QuoteType
         #arguments: ["@doctrine.orm.entity_manager"]
         #tags:
             #- {name: form.type, alias: autocomplete_entity}
     app.login_menu_builder:
-        class: Acme\StoreBundle\Menu\LoginMenuBuilder
+        class: Beluha\StoreBundle\Menu\LoginMenuBuilder
         arguments: ["@knp_menu.factory", "@service_container"]
         tags:
-            - { name: knp_menu.menu_builder, method: createMainMenu, alias: login } # The alias is what is used to retrieve the menu
+            - { name: knp_menu.menu_builder, method: createMainMenu, alias: login }

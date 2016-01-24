@@ -1,33 +1,33 @@
-acme_store_quote:
-    resource: "@AcmeStoreBundle/Controller/QuoteController.php"
+Beluha_store_quote:
+    resource: "@BeluhaStoreBundle/Controller/QuoteController.php"
     type:     annotation
 
-acme_store_author_quote:
-    resource: "@AcmeStoreBundle/Controller/AuthorQuoteController.php"
+Beluha_store_author_quote:
+    resource: "@BeluhaStoreBundle/Controller/AuthorQuoteController.php"
     type:     annotation
 
-acme_store:
-    resource: "@AcmeStoreBundle/Resources/config/routing.yml"
-    prefix:   /acme
+Beluha_store:
+    resource: "@BeluhaStoreBundle/Resources/config/routing.yml"
+    prefix:   /Beluha
 
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@BeluhaAppBundle/Controller/"
     type:     annotation
 login:
     path:   /login
-    defaults:  { _controller: AcmeSecurityBundle:Security:login }
+    defaults:  { _controller: BeluhaSecurityBundle:Security:login }
 login_check:
     path:   /login_check
-    defaults:  { _controller: AcmeSecurityBundle:Security:login_check }
+    defaults:  { _controller: BeluhaSecurityBundle:Security:login_check }
 registration:
     path: /registration
-    defaults:  { _controller: AcmeSecurityBundle:Security:registration }
+    defaults:  { _controller: BeluhaSecurityBundle:Security:registration }
 logout:
     path: /logout
 static_page:
     path: /about
     defaults:
         _controller: FrameworkBundle:Template:template
-        template: 'AppBundle:Static:about.html.twig'
+        template: 'BeluhaAppBundle:Static:about.html.twig'
 gregwar_captcha_routing:
     resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\AppBundle\Controller;
+namespace Beluha\StoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,7 +12,6 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertEquals(302, $client->getResponse()->getStatusCode());
-        //$this->assertContains('Beluha\SecurityBundle\Controller\SecurityController::loginAction', $crawler->filter('h1')->text());
+        $this->assertContains('Hello World', $client->getResponse()->getContent());
     }
 }

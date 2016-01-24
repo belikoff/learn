@@ -1,0 +1,8 @@
+user_form:
+    password: Password
+    repeat_password: Repeat Password
+    captcha: Captcha
+    email: Email
+    username: username
+    registration: registration
+    logout: logout

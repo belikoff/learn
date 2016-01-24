@@ -1,0 +1,8 @@
+user_form:
+    password: Пароль
+    repeat_password: Повторите пароль
+    captcha: Введите символы с картинки
+    email: Email адрес
+    username: Введите ваше имя
+    registration: Регистрация
+    logout: Выход

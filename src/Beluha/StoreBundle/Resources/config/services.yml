@@ -1,0 +1,4 @@
+services:
+#    Beluha_store.example:
+#        class: Beluha\StoreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

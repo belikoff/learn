@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\StoreBundle\Controller;
+namespace Beluha\StoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -13,7 +13,7 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
-        //$this->assertContains('Acme\SecurityBundle\Controller\SecurityController::loginAction', $crawler->filter('h1')->text());
+        //$this->assertContains('Beluha\SecurityBundle\Controller\SecurityController::loginAction', $crawler->filter('h1')->text());
     }
 }
 
