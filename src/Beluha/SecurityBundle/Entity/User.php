@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Beluha\BlogBundle\Entity\Quote;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * User
@@ -57,10 +58,25 @@ class User implements UserInterface, \Serializable
      */
     private $quotes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Beluha\BlogBundle\Entity\Post", mappedBy="author")
+     */
+    private $posts;
+
+    /**
+     *
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"username"}, unique=false)
+     * @ORM\Column(length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->isActive = true;
         $this->quotes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid(null, true));
     }
@@ -256,5 +272,63 @@ class User implements UserInterface, \Serializable
     public function getQuotes()
     {
         return $this->quotes;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \Beluha\BlogBundle\Entity\Post $post
+     *
+     * @return User
+     */
+    public function addPost(\Beluha\BlogBundle\Entity\Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \Beluha\BlogBundle\Entity\Post $post
+     */
+    public function removePost(\Beluha\BlogBundle\Entity\Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
     }
 }

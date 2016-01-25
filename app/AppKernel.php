@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Beluha\BlogBundle\BeluhaBlogBundle(),
             new Beluha\SecurityBundle\BeluhaSecurityBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new PUGX\AutocompleterBundle\PUGXAutocompleterBundle(),

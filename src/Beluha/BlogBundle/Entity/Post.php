@@ -52,7 +52,7 @@ class Post extends Timestampable
     /**
      * @var Author
      *
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="Beluha\SecurityBundle\Entity\User", inversedBy="posts")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank
      */

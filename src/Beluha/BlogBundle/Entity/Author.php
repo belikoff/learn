@@ -41,17 +41,9 @@ class Author extends Timestampable
      */
     private $slug;
     
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="author", cascade={"remove"})
-     */
-    private $posts;
 
     public function __construct()
     {
-        //parent::__construct();//Больше не нужно, так как мы добавили поведение Timestampable не через конструктор
-        $this->posts = new ArrayCollection();
 
     }
 
@@ -87,42 +79,6 @@ class Author extends Timestampable
     public function getName()
     {
         return $this->name;
-    }
-
-
-
-    /**
-     * Add post
-     *
-     * @param \Beluha\BlogBundle\Entity\Post $post
-     *
-     * @return Author
-     */
-    public function addPost(\Beluha\BlogBundle\Entity\Post $post)
-    {
-        $this->posts[] = $post;
-
-        return $this;
-    }
-
-    /**
-     * Remove post
-     *
-     * @param \Beluha\BlogBundle\Entity\Post $post
-     */
-    public function removePost(\Beluha\BlogBundle\Entity\Post $post)
-    {
-        $this->posts->removeElement($post);
-    }
-
-    /**
-     * Get posts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPosts()
-    {
-        return $this->posts;
     }
 
     /**

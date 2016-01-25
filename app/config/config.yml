@@ -102,3 +102,9 @@ assetic:
     filters:
         cssrewrite: ~
 gregwar_captcha: ~
+#Doctrine Extensions configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
