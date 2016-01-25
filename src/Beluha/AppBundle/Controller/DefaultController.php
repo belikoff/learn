@@ -39,7 +39,7 @@ class DefaultController extends Controller
         $dumper = new VarDumper();
         //$dumper->dump($dispatcher);
         //$dumper->dump($foo);
-        return $this->render('BeluhaStoreBundle:Default:index.html.twig',
+        return $this->render('BeluhaBlogBundle:Default:index.html.twig',
                 ['controller' => $_controller], $response);
     }
 }

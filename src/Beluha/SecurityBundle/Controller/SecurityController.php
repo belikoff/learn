@@ -56,7 +56,7 @@ class SecurityController extends Controller{
             // ... do any other work - like send them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('Beluha_store_homepage');
+            return $this->redirectToRoute('Beluha_Blog_homepage');
         }
 
         return $this->render(

@@ -1,15 +1,15 @@
-Beluha_store_quote:
-    resource: "@BeluhaStoreBundle/Controller/QuoteController.php"
+Beluha_Blog_quote:
+    resource: "@BeluhaBlogBundle/Controller/QuoteController.php"
     type:     annotation
 
-Beluha_store_author_quote:
-    resource: "@BeluhaStoreBundle/Controller/AuthorQuoteController.php"
+Beluha_Blog_author_quote:
+    resource: "@BeluhaBlogBundle/Controller/AuthorQuoteController.php"
     type:     annotation
 
-Beluha_store:
-    resource: "@BeluhaStoreBundle/Resources/config/routing.yml"
-    prefix:   /Beluha
-
+Beluha_Blog:
+    resource: "@BeluhaBlogBundle/Resources/config/routing.yml"
+    prefix:   /beluha
+    
 app:
     resource: "@BeluhaAppBundle/Controller/"
     type:     annotation

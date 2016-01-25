@@ -1,0 +1,24 @@
+{% extends "BeluhaBlogBundle::base.html.twig" %}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <header>
+        <p>Мой  блог на Symfony 2</p>
+
+    </header>
+    {% block sidebar %}{% endblock %}
+    <section>
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <p class="session-message">{{ message }}</p>
+            {% endfor %}
+        {% endfor %}        
+        {% block section %}{% endblock %}
+    </section>
+        <footer>
+            <p>&copy; {{ 'now' | date('Y')}} Мой блог на Symfony2</p>
+        </footer>
+{% endblock %}

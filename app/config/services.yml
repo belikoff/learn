@@ -18,17 +18,17 @@ services:
             ###- {name: monolog.logger}
     
     #added_quote:
-        #class: Beluha\StoreBundle\Entity\Quote
+        #class: Beluha\BlogBundle\Entity\Quote
         #calls:
             #- [setByAdded, ["@service_container"]]
         #public: false
     #smtc.main.form.autocomplete_entity_type:
-        #class: Beluha\StoreBundle\Form\QuoteType
+        #class: Beluha\BlogBundle\Form\QuoteType
         #arguments: ["@doctrine.orm.entity_manager"]
         #tags:
             #- {name: form.type, alias: autocomplete_entity}
     app.login_menu_builder:
-        class: Beluha\StoreBundle\Menu\LoginMenuBuilder
+        class: Beluha\BlogBundle\Menu\LoginMenuBuilder
         arguments: ["@knp_menu.factory", "@service_container"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: login }

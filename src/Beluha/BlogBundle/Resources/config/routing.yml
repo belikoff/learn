@@ -1,0 +1,6 @@
+Beluha_Blog_Author:
+    resource: "@BeluhaBlogBundle/Controller/AuthorController.php"
+    type:     annotation
+Beluha_Blog_Post:
+    resource: "@BeluhaBlogBundle/Controller/PostController.php"
+    type:     annotation 

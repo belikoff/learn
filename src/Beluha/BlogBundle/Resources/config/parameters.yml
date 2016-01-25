@@ -1,0 +1,2 @@
+#parameters:
+    #Beluha.base_template: BeluhaBlogBundle::base.html.twig

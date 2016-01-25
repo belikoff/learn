@@ -5,7 +5,7 @@ namespace Beluha\SecurityBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Beluha\StoreBundle\Entity\Quote;
+use Beluha\BlogBundle\Entity\Quote;
 
 /**
  * User
@@ -53,7 +53,7 @@ class User implements UserInterface, \Serializable
     private $isActive;
     
     /**
-     * @ORM\OneToMany(targetEntity="Beluha\StoreBundle\Entity\Quote", mappedBy="by_added")
+     * @ORM\OneToMany(targetEntity="Beluha\BlogBundle\Entity\Quote", mappedBy="by_added")
      */
     private $quotes;
 
@@ -227,7 +227,7 @@ class User implements UserInterface, \Serializable
     /**
      * Add quote
      *
-     * @param \Beluha\SecurityBundle\Entity\BeluhaStoreBundle:Quote $quote
+     * @param \Beluha\SecurityBundle\Entity\BeluhaBlogBundle:Quote $quote
      *
      * @return User
      */
@@ -241,7 +241,7 @@ class User implements UserInterface, \Serializable
     /**
      * Remove quote
      *
-     * @param \Beluha\SecurityBundle\Entity\BeluhaStoreBundle:Quote $quote
+     * @param \Beluha\SecurityBundle\Entity\BeluhaBlogBundle:Quote $quote
      */
     public function removeQuote(Quote $quote)
     {

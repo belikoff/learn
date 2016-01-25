@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Beluha\AppBundle\BeluhaAppBundle(),
-            new Beluha\StoreBundle\BeluhaStoreBundle(),
+            new Beluha\BlogBundle\BeluhaBlogBundle(),
             new Beluha\SecurityBundle\BeluhaSecurityBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
