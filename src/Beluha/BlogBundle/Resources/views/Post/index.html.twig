@@ -5,7 +5,7 @@
 {% block sidebar %}
     <aside>
         <h3>{{ 'post.latest' | trans }}</h3>
-        {% for post in latestPosts%}
+        {% for post in latestPosts %}
             <p><a href="{{ path('beluha_blog_post_show', { slug: post.slug })}}">{{ post.title }}</a></p>
             {% endfor %}
     </aside>

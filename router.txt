@@ -29,6 +29,17 @@
   authorquote_show                   GET        ANY      ANY    /authorquote/{id}                        
   authorquote_edit                   GET|POST   ANY      ANY    /authorquote/{id}/edit                   
   authorquote_delete                 DELETE     ANY      ANY    /authorquote/{id}                        
+  beluha_blog_author_show            ANY        ANY      ANY    /beluha/author/{slug}                    
+  beluha_blog_author_index           GET        ANY      ANY    /beluha/admin/                           
+  beluha_blog_author_create          POST       ANY      ANY    /beluha/admin/                           
+  beluha_blog_author_new             GET        ANY      ANY    /beluha/admin/new                        
+  beluha_blog_author_showadmin       GET        ANY      ANY    /beluha/admin/{id}                       
+  beluha_blog_author_edit            GET        ANY      ANY    /beluha/admin/{id}/edit                  
+  beluha_blog_author_update          PUT        ANY      ANY    /beluha/admin/{id}                       
+  beluha_blog_author_delete          DELETE     ANY      ANY    /beluha/admin/{id}                       
+  blog_show                          ANY        ANY      ANY    /beluha/                                 
+  beluha_blog_post_show              ANY        ANY      ANY    /beluha/{slug}                           
+  beluha_blog_post_createcomment     POST       ANY      ANY    /beluha/{slug}/create-comment            
   homepage                           ANY        ANY      ANY    /                                        
   beluha_app_lucky_number            ANY        ANY      ANY    /lucky/number/                           
   login                              ANY        ANY      ANY    /login                                   

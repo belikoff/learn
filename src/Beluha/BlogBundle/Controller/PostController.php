@@ -17,7 +17,7 @@ class PostController extends Controller
      * Show the posts index
      * @return array 
      * 
-     * @Route("/")
+     * @Route("/", name="blog_show")
      */
     public function indexAction(Request $request)
     {

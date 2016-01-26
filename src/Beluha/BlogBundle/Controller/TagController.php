@@ -28,18 +28,30 @@ class TagController extends Controller
     public function showAction($slug)
     {
 
-        $tagRepo = $this->getDoctrine()->getRepository('\DoctrineExtensions\Taggable\Entity\Tag');
+        $tagRepo = $this->getDoctrine()->getRepository('BeluhaBlogBundle:Tag');
+        $ids = $tagRepo->getResourceIdsForTag('tag', $slug);
 
-        
+        $repository = $this->getDoctrine()
+            ->getRepository('BeluhaBlogBundle:Post');
+        $qb = $repository->createQueryBuilder('p');
+        $query = $qb->add('where', $qb->expr()->in('p.id', $ids))->getQuery();
+        $posts = $query->getResult();
+
         $dumper = new VarDumper();
-        $dumper->dump($tagRepo);
-        //if(null === $tagRepo){
-            //throw $this->createNotFoundException('Постов с такими тэгами не найдено');
-        //}
+        $dumper->dump($posts);
+        
+        $latestPosts = $this->getDoctrine()->getRepository('BeluhaBlogBundle:Post')->findLatest(5);
+
+        if(null === $posts){
+            throw $this->createNotFoundException('Постов с такими тэгами не найдено');
+        }
 
 
 
         
-        return $this->render('BeluhaBlogBundle:Post:index.html.twig',[]);
+        return $this->render('BeluhaBlogBundle:Post:index.html.twig',[
+            'posts'         => $posts,
+            'latestPosts'   => $latestPosts
+        ]);
     }    
 }

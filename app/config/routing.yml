@@ -11,7 +11,7 @@ Beluha_Blog_author_quote:
     resource: "@BeluhaBlogBundle/Controller/AuthorQuoteController.php"
     type:     annotation
 
-Beluha_Blog:
+Beluha_Blog_Post:
     resource: "@BeluhaBlogBundle/Resources/config/routing.yml"
     prefix:   /beluha
     
