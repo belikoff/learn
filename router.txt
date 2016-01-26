@@ -15,6 +15,7 @@
   _profiler_exception                ANY        ANY      ANY    /_profiler/{token}/exception             
   _profiler_exception_css            ANY        ANY      ANY    /_profiler/{token}/exception.css         
   _twig_error_test                   ANY        ANY      ANY    /_error/{code}.{_format}                 
+  blog_tag                           ANY        ANY      ANY    /beluha/tag/{slug}                       
   authorquote_quote_index            GET        ANY      ANY    /authorquote/quote/                      
   authorquote_quote_random           POST       ANY      ANY    /authorquote/quote/random-quote          
   authorquote_quote_new              GET|POST   ANY      ANY    /authorquote/quote/new                   
@@ -28,17 +29,6 @@
   authorquote_show                   GET        ANY      ANY    /authorquote/{id}                        
   authorquote_edit                   GET|POST   ANY      ANY    /authorquote/{id}/edit                   
   authorquote_delete                 DELETE     ANY      ANY    /authorquote/{id}                        
-  beluha_blog_author_show            ANY        ANY      ANY    /author/{slug}                           
-  beluha_blog_author_index           GET        ANY      ANY    /admin/                                  
-  beluha_blog_author_create          POST       ANY      ANY    /admin/                                  
-  beluha_blog_author_new             GET        ANY      ANY    /admin/new                               
-  beluha_blog_author_showadmin       GET        ANY      ANY    /admin/{id}                              
-  beluha_blog_author_edit            GET        ANY      ANY    /admin/{id}/edit                         
-  beluha_blog_author_update          PUT        ANY      ANY    /admin/{id}                              
-  beluha_blog_author_delete          DELETE     ANY      ANY    /admin/{id}                              
-  beluha_blog_post_index             ANY        ANY      ANY    /                                        
-  beluha_blog_post_show              ANY        ANY      ANY    /{slug}                                  
-  beluha_blog_post_createcomment     POST       ANY      ANY    /{slug}/create-comment                   
   homepage                           ANY        ANY      ANY    /                                        
   beluha_app_lucky_number            ANY        ANY      ANY    /lucky/number/                           
   login                              ANY        ANY      ANY    /login                                   

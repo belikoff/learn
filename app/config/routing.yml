@@ -1,3 +1,8 @@
+Beluha_Blog:
+    resource: "@BeluhaBlogBundle/Controller/TagController.php"
+    type:     annotation
+    prefix:   /beluha/tag
+    
 Beluha_Blog_quote:
     resource: "@BeluhaBlogBundle/Controller/QuoteController.php"
     type:     annotation

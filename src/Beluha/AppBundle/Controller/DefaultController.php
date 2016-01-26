@@ -33,11 +33,14 @@ class DefaultController extends Controller
         $response = new Response();
 
 
-        $user   = $this->getUser();
+        //$user   = $this->getUser();
         //$dumper->dump($user); exit;
         //$response-> setStatusCode(500);
+        $user = $this->getDoctrine()->getRepository('BeluhaSecurityBundle:User')->findOneBy(
+                ['username' => 'admin']
+        );        
         $dumper = new VarDumper();
-        //$dumper->dump($dispatcher);
+        $dumper->dump($user);
         //$dumper->dump($foo);
         return $this->render('BeluhaBlogBundle:Default:index.html.twig',
                 ['controller' => $_controller], $response);

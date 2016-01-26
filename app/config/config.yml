@@ -108,3 +108,7 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+fpn_tag:
+    model:
+        tag_class:     Beluha\BlogBundle\Entity\Tag
+        tagging_class: Beluha\BlogBundle\Entity\Tagging

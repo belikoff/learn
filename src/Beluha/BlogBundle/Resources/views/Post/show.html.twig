@@ -5,7 +5,7 @@
 {% block sidebar %}
     <aside>
         <h3>{{ 'author.title' | trans }}</h3>
-            <p><a href="{{ path('core_author_show', { slug: post.author.slug })}}" title="{{ 'post.by.author' | trans({ '%name%': post.author.name }) }}">{{ post.author.name }}</a></p>
+            <p><a href="{{ path('beluha_blog_author_show', { slug: post.author.slug })}}" title="{{ 'post.by.author' | trans({ '%name%': post.author.username }) }}">{{ post.author.username }}</a></p>
     </aside>
 {% endblock %}
 
@@ -18,9 +18,17 @@
                 <time datatime="{{ post.createdAt | date('c') }}">{{ post.createdAt | date}}</time>
             </p>
         </header>
-            <p>{{ post.body | nl2br }}</p>
+            <p>
+
+                {{ post.body | raw | nl2br}}
+              
+                
+            </p>
     </article>
-            <a id="comments"></a>
+                {% for tag in post.tags %}
+                    <a href="#">{{ tag.name }}</a>
+                    {% endfor %}
+            {#<a id="comments"></a>
             <h2>{{ 'comment.plural' | trans }}</h2>
             
             {% for comment in post.comments %}
@@ -28,5 +36,5 @@
             {% endfor %}
             
             <h4>{{ 'comment.write' | trans }}</h4>
-            {{ form(form, {action: path('core_post_createcomment', {slug: post.slug}) ~ '#comments'})}}
+            {{ form(form, {action: path('core_post_createcomment', {slug: post.slug}) ~ '#comments'})}}#}
 {% endblock %}

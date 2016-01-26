@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Beluha\BlogBundle\Entity\Timestampable;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
+use DoctrineExtensions\Taggable\Taggable;
+use Beluha\SecurityBundle\Entity\User;
 
 /**
  * Post
@@ -14,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="Beluha\BlogBundle\Repository\PostRepository")
  */
-class Post extends Timestampable
+class Post extends Timestampable implements Taggable
 {
     /**
      * @var int
@@ -65,8 +67,39 @@ class Post extends Timestampable
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"remove"})
      */
     private $comments;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="keywords", type="string", length=255)
+     */    
+    private $keywords;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */    
+    private $description;
 
+    private $tags;
 
+    public function getTags()
+    {
+        $this->tags = $this->tags ?: new ArrayCollection();
+
+        return $this->tags;
+    }
+
+    public function getTaggableType()
+    {
+        return 'tag';
+    }
+
+    public function getTaggableId()
+    {
+        return $this->getId();
+    }
     /**
      * Get id
      *
@@ -129,11 +162,11 @@ class Post extends Timestampable
     /**
      * Set author
      *
-     * @param \Beluha\BlogBundle\Entity\Author $author
+     * @param \Beluha\SecurityBundle\Entity\User $author
      *
      * @return Post
      */
-    public function setAuthor(Author $author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
 
@@ -143,7 +176,7 @@ class Post extends Timestampable
     /**
      * Get author
      *
-     * @return \Beluha\BlogBundle\Entity\Author
+     * @return \Beluha\SecurityBundle\Entity\User
      */
     public function getAuthor()
     {
@@ -213,5 +246,53 @@ class Post extends Timestampable
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     *
+     * @return Post
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Post
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

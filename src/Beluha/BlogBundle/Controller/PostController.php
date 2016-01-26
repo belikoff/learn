@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Beluha\BlogBundle\Form\CommentType;
-
+use Symfony\Component\VarDumper\VarDumper;
 use Beluha\BlogBundle\Entity\Comment;
 
 class PostController extends Controller
@@ -53,6 +53,11 @@ class PostController extends Controller
         if(null === $post){
             throw $this->createNotFoundException('Такой пост не найден');
         }
+        $tagManager = $this->get('fpn_tag.tag_manager');
+        $tagManager->loadTagging($post);
+        $dumper = new VarDumper();
+        $dumper->dump($post);
+        //
         //В этом коде нет необходимости, так как комментарии и так подтянутся из базы
         /*$comments = $this->getDoctrine()->getRepository('Beluha\BlogBundle:Comment')->findBy(
                 [
