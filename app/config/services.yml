@@ -32,3 +32,13 @@ services:
         arguments: ["@knp_menu.factory", "@service_container"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: login }
+    admin.quote:
+        class: Beluha\AdminBundle\Admin\QuoteAdmin
+        arguments: [~, Beluha\BlogBundle\Entity\Quote, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Цитаты }
+    admin.post:
+        class: Beluha\AdminBundle\Admin\PostAdmin
+        arguments: [~, Beluha\BlogBundle\Entity\Post, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Статьи }

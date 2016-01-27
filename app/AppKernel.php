@@ -15,8 +15,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            //new Sonata\CoreBundle\SonataCoreBundle(),
-            //new Sonata\BlockBundle\SonataBlockBundle(),            
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),            
             new Beluha\AppBundle\BeluhaAppBundle(),
             new Beluha\BlogBundle\BeluhaBlogBundle(),
             new Beluha\SecurityBundle\BeluhaSecurityBundle(),
@@ -28,8 +28,12 @@ class AppKernel extends Kernel
             new PUGX\AutocompleterBundle\PUGXAutocompleterBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
-            //new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            //new Sonata\AdminBundle\SonataAdminBundle(),            
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),            
+            new Beluha\AdminBundle\BeluhaAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

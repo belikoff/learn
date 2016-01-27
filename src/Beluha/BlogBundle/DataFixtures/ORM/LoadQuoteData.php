@@ -9,7 +9,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Beluha\BlogBundle\Entity\AuthorQuote;
 use Beluha\BlogBundle\Entity\Quote;
-use Beluha\SecurityBundle\Entity\User;
 
 /**
  * Description of LoadQuoteData
@@ -18,6 +17,7 @@ use Beluha\SecurityBundle\Entity\User;
  */
 class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+
     /**
      * @var ContainerInterface
      */
@@ -27,6 +27,7 @@ class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, 
     {
         $this->container = $container;
     }
+
     /**
      * {@inheritDoc}
      */
@@ -34,6 +35,7 @@ class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, 
     {
         return 20;
     }
+
     /**
      * {@inheritDoc}
      */
@@ -43,40 +45,37 @@ class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, 
 
         $a1 = new AuthorQuote();
         $a1->setName('А. Камю');
+        $manager->persist($users[0]);
+        $manager->persist($a1);
+
+        $quoteArray1 = [];
 
         $q1 = new Quote();
         $q1->setText('Осознание того, что мы умрем, превращает нашу жизнь в шутку.');
-        $q1->setAuthor($a1);
-        $q1->setByAdded($users[0]);
-        $manager->persist($users[0]);
-        $manager->persist($a1);
-        $manager->persist($q1);
+        $quoteArray1[] = $q1;
 
         $q2 = new Quote();
         $q2->setText('Высшая добродетель заключается в том, чтобы задушить свои страсти.');
-        $q2->setAuthor($a1);
-        $q2->setByAdded($users[0]);
-        $manager->persist($q2);
-
+        $quoteArray1[] = $q2;
 
         $q3 = new Quote();
         $q3->setText('Причины внутри нас самих, снаружи только оправдания…');
-        $q3->setAuthor($a1);
-        $q3->setByAdded($users[0]);
-        $manager->persist($q3);
-
+        $quoteArray1[] = $q3;
 
         $q4 = new Quote();
         $q4->setText('С несправедливостью либо сражаются, либо сотрудничают.');
-        $q4->setAuthor($a1);
-        $q4->setByAdded($users[0]);
-        $manager->persist($q4);
+        $quoteArray1[] = $q4;
 
         $q5 = new Quote();
         $q5->setText('Для большинства людей война означает конец одиночества. Для меня она — окончательное одиночество.');
-        $q5->setAuthor($a1);
-        $q5->setByAdded($users[0]);
-        $manager->persist($q5);
+        $quoteArray1[] = $q5;
+
+        foreach ($quoteArray1 as $quote) {
+            $quote->setAuthor($a1);
+            $quote->setByAdded($users[0]);
+            $manager->persist($quote);
+        }
+
 
         $a2 = new AuthorQuote();
         $a2->setName('Марина Цветаева');
@@ -87,8 +86,7 @@ class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, 
         $q6->setAuthor($a2);
         $q6->setByAdded($users[0]);
         $manager->persist($q6);
-        
+
         $manager->flush();
-        
     }
 }
