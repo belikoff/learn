@@ -25,7 +25,7 @@ class PostAdmin extends Admin
             ->add('body')
             /*->add('body', 'sonata_simple_formatter_type', array(
                 'format' => 'richhtml'
-            )) */           
+            )) */
             ->add('author', EntityType::class, ['class' => 'BeluhaSecurityBundle:User', 'choice_label' => 'getUsername' ])
             ->add('keywords')
             ->add('description');

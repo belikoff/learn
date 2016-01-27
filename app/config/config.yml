@@ -45,11 +45,8 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"  
     form_themes: 
-    - "bootstrap_3_layout.html.twig"
-#    form:
-#        resources:
-#            - 'SonataFormatterBundle:Form:formatter.html.twig'
-
+    #- "bootstrap_3_layout.html.twig"
+    - 'SonataFormatterBundle:Form:formatter.html.twig'
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -148,7 +145,6 @@ sonata_formatter:
                 - sonata.formatter.twig.gist
         #        - sonata.media.formatter.twig
 
-
         rawhtml:
             service: sonata.formatter.text.raw
             extensions:
@@ -156,14 +152,12 @@ sonata_formatter:
                 - sonata.formatter.twig.gist
         #        - sonata.media.formatter.twig
 
-
         richhtml:
             service: sonata.formatter.text.raw
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
         #        - sonata.media.formatter.twig
-
 
         twig:
             service: sonata.formatter.text.twigengine
