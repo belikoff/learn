@@ -23,7 +23,18 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->add('title')
-            ->add('body', null, [
+            ->add('category', EntityType::class,
+                [
+                'class' => 'BeluhaBlogBundle:Category',
+                'query_builder' => function($er) {
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.root', 'ASC')
+                        ->addOrderBy('c.lft', 'ASC');
+                },
+                'choice_label' => 'indentedTitle'
+            ])
+            ->add('body', null,
+                [
                 'attr' => [
                     'format' => 'richhtml',
                     'class' => 'ckeditor'
@@ -32,7 +43,8 @@ class PostAdmin extends Admin
             /* ->add('body', 'sonata_simple_formatter_type', array(
               'format' => 'richhtml'
               )) */
-            ->add('author', EntityType::class, ['class' => 'BeluhaSecurityBundle:User', 'choice_label' => 'getUsername'])
+            ->add('author', EntityType::class,
+                ['class' => 'BeluhaSecurityBundle:User', 'choice_label' => 'getUsername'])
             ->add('keywords')
             ->add('description');
     }
@@ -47,7 +59,8 @@ class PostAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('author', null, [
+            ->add('author', null,
+                [
                 'associated_property' => 'username',
         ]);
     }

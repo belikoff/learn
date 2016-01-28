@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Beluha\BlogBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -64,19 +63,20 @@ class Category
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
-    
+
     /**
      *
      * @var ArrayCollection
      * 
      * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
-     */    
+     */
     private $posts;
 
     public function __construct()
     {
         $this->posts = new ArrayCollection();
     }
+
     public function getId()
     {
         return $this->id;
@@ -264,5 +264,15 @@ class Category
     public function getPosts()
     {
         return $this->posts;
+    }
+    
+    /**
+     * Get formatted title for formbuilder (for select)
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIndentedTitle()
+    {
+        return str_repeat("--", $this->lvl).$this->title;
     }
 }

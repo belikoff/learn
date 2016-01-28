@@ -7,22 +7,7 @@
 
 {% block stylesheets %}
     {{ parent() }}  
-<style type="text/css" media="screen">
- #post-container
- {
-     position: relative;
-     margin-bottom: 20px;
- }
-    #editor { 
-        position: relative;
-        width: 640px;
-        height: 500px;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 40;
-    }
-</style>    
+<link rel="stylesheet" href="{{ asset('bundles/BeluhaBlog/js/highlight/styles/github-gist.css') }}">
 {% endblock %}   
 
 
@@ -64,14 +49,6 @@
 
 {% block script %}
     {{ parent() }}
-    <script src="{{ asset('bundles/BeluhaBlog/js/ace-builds-master/src-min-noconflict/ace.js') }}"></script>
-    <script>
-    $(function () {
-        if($('#editor').length){
-            var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/github");
-            editor.getSession().setMode("ace/mode/php");
-        }
-    });
-    </script>
+    <script src="{{ asset('bundles/BeluhaBlog/js/highlight/highlight.pack.js') }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
