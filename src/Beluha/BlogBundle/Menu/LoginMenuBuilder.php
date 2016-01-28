@@ -30,7 +30,7 @@ class LoginMenuBuilder
 
     public function createMainMenu(array $options)
     {
-        $menu = $this->factory->createItem('root');
+        /*$menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         //$dumper = new VarDumper();
         //$dumper->dump($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY'));
@@ -41,6 +41,6 @@ class LoginMenuBuilder
             $menu->addChild('login', array('route' => 'login'))->setExtra('translation_domain', 'blog');
             $menu->addChild('user_form.registration', array('route' => 'registration'))->setExtra('translation_domain', 'security');
         }
-        return $menu;
+        return $menu;*/
     }
 }

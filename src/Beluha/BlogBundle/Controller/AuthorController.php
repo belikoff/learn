@@ -27,7 +27,6 @@ class AuthorController extends Controller
      * @throws NotFoundHttpException
      * @return array
      * 
-     * @Route("/author/{slug}")
      * @Template()
      */
     public function showAction($slug)
@@ -55,7 +54,6 @@ class AuthorController extends Controller
      *
      * @return array
      *
-     * @Route("/admin/")
      * @Method("GET")
      * @Template()
      */
@@ -74,7 +72,6 @@ class AuthorController extends Controller
      *
      * @return array
      *
-     * @Route("/admin/")
      * @Method("POST")
      * @Template("AdminBundle:Author:new.html.twig")
      */
@@ -115,7 +112,6 @@ class AuthorController extends Controller
      *
      * @return array
      *
-     * @Route("/admin/new")
      * @Method("GET")
      * @Template()
      */
@@ -135,8 +131,7 @@ class AuthorController extends Controller
      *
      * @throws NotFoundHttpException
      * @return array
-     *
-     * @Route("/admin/{id}")
+     * 
      * @Method("GET")
      * @Template("Beluha\BlogBundle:Author:admin_show.html.twig")
      */
@@ -161,7 +156,6 @@ class AuthorController extends Controller
      * @throws NotFoundHttpException
      * @return array
      *
-     * @Route("/admin/{id}/edit")
      * @Method("GET")
      * @Template()
      */
@@ -206,8 +200,6 @@ class AuthorController extends Controller
      * @throws NotFoundHttpException
      * @return array
      *
-     * @Route("/admin/{id}")
-     * @Method("PUT")
      * @Template("AdminBundle:Author:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -240,8 +232,6 @@ class AuthorController extends Controller
      * @throws NotFoundHttpException
      * @return array
      *
-     * @Route("/admin/{id}")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

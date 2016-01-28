@@ -6,8 +6,8 @@
         </h2>
             <p>
                 {{ 'post.on' | trans }} <time datetime="{{ post.createdAt | date('c') }}">{{ post.createdAt | date}}</time>
-                {{ 'by' | trans }} <a href="{{ path('beluha_blog_author_show', { slug: post.author.slug })}}">{{ post.author.username }}</a>
-                -<a href="{{ path('beluha_blog_author_show', {slug: post.slug}) }}#comments">
+                {{ 'by' | trans }} <a href="#">{{ post.author.username }}</a>
+                -<a href="#comments">
                     {% set count = post.comments | length %}
                     {{ 'post.comments' | transchoice(count) }}
                 </a>

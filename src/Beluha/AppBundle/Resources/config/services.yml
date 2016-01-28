@@ -1,8 +1,0 @@
-#services:
-    #dump:
-        #class: Symfony\Component\VarDumper\VarDumper  
-    #foo:
-        #class: AppBundle\Service\FooService
-        #calls:
-            #- [setDumper, ["@dump"]]
-

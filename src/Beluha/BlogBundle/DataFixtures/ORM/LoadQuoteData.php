@@ -86,6 +86,16 @@ class LoadQuoteData extends AbstractFixture implements OrderedFixtureInterface, 
         $q6->setAuthor($a2);
         $q6->setByAdded($users[0]);
         $manager->persist($q6);
+        
+        $a3 = new AuthorQuote();
+        $a3->setName('Брайан Трейси');
+        $manager->persist($a3);  
+    
+        $q7 = new Quote();
+        $q7->setText('«Некоторые руководители не уверены, что им стоит обучать сотрудников: «А что если мы их научим, а они уйдут?». Это неправильный вопрос. Правильный вопрос: «А что если мы их не научим, а они останутся?»');
+        $q7->setAuthor($a3);
+        $q7->setByAdded($users[0]);
+        $manager->persist($q7);
 
         $manager->flush();
     }

@@ -31,22 +31,15 @@ security:
             provider: db_provider
             anonymous: ~
             form_login:
-                login_path: /login
-                check_path: /login_check
+                login_path: /admin/login
+                check_path: /admin/login_check
             logout:
-                path: /logout
-                target: /login
-                #csrf_provider: security.csrf.token_manager
-            # ###activate different ways to authenticate
+                path: /admin/logout
+                target: /admin/login
 
-            # ###http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # ##form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/generate-captcha, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/generate-captcha, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/ }

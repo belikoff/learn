@@ -1,24 +1,50 @@
-{% extends "BeluhaBlogBundle::base.html.twig" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Beluha{% endblock %}</title>
+        <meta name="description" content="{% block description %}Личный блог о путешествиях, web-разработке и о жизни{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}Путешествия, web, html, css, javascript, php, symfony2{% endblock %}" />
+        <meta name="author" content="{% block author %}beluha.pro{% endblock %}" />
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/BeluhaBlog/css/bootstrap.min.css') }}" rel="stylesheet"
+                  type="text/css"/>
+            <link href="{{ asset('bundles/BeluhaBlog/css/bootstrap-theme.min.css') }}" rel="stylesheet"
+                  type="text/css"/>
+            <link href="{{ asset('bundles/BeluhaBlog/css/jquery-ui.min.css') }}" rel="stylesheet"
+                  type="text/css"/> 
+            <link href="{{ asset('bundles/BeluhaBlog/css/jquery-ui.theme.min.css') }}" rel="stylesheet"
+                  type="text/css"/>              
+            <link href="{{ asset('bundles/BeluhaBlog/css/main.css') }}" rel="stylesheet"
+                  type="text/css"/>            
+        {% endblock %}        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+            {% block menu %}
+            {% endblock %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" id="leftCol">
+                        {% block sidebar %}
+                        {% endblock %}
+                    </div>
+                    <div class="col-md-9">
+                    {% block body %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>            
 
-{% block stylesheets %}
-{{ parent() }}
-{% endblock %}
 
-{% block body %}
-    <header>
-        <p>Мой  блог на Symfony 2</p>
 
-    </header>
-    {% block sidebar %}{% endblock %}
-    <section>
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <p class="session-message">{{ message }}</p>
-            {% endfor %}
-        {% endfor %}        
-        {% block section %}{% endblock %}
-    </section>
-        <footer>
-            <p>&copy; {{ 'now' | date('Y')}} Мой блог на Symfony2</p>
-        </footer>
-{% endblock %}
+        {% block script %}
+            <script src="{{ asset('bundles/BeluhaBlog/js/jquery-1.12.0.min.js') }}"></script>           
+            <script src="{{ asset('bundles/BeluhaBlog/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/BeluhaBlog/js/jquery-ui.min.js') }}"></script>
+            <script src="{{ asset('bundles/BeluhaBlog/js/quote.js') }}"></script>
+        {% endblock %}        
+    </body>
+</html>
+
+

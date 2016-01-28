@@ -17,9 +17,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),            
-            new Beluha\AppBundle\BeluhaAppBundle(),
-            new Beluha\BlogBundle\BeluhaBlogBundle(),
-            new Beluha\SecurityBundle\BeluhaSecurityBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FPN\TagBundle\FPNTagBundle(),
@@ -32,7 +29,9 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new Sonata\FormatterBundle\SonataFormatterBundle(),            
+            new Sonata\FormatterBundle\SonataFormatterBundle(), 
+            new Beluha\BlogBundle\BeluhaBlogBundle(),
+            new Beluha\SecurityBundle\BeluhaSecurityBundle(),            
             new Beluha\AdminBundle\BeluhaAdminBundle(),
         );
 

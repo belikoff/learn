@@ -1,8 +1,9 @@
-{% extends "BeluhaBlogBundle::layout.html.twig" %}
+{% extends "BeluhaBlogBundle::base.html.twig" %}
 
 {% block title %}{{ 'post.plural' | trans }}{% endblock %}
 
 {% block sidebar %}
+    {{ parent() }}
     <aside>
         <h3>{{ 'post.latest' | trans }}</h3>
         {% for post in latestPosts %}

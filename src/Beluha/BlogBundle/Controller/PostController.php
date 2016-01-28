@@ -55,20 +55,20 @@ class PostController extends Controller
         }
         $tagManager = $this->get('fpn_tag.tag_manager');
         $tagManager->loadTagging($post);
-        $dumper = new VarDumper();
-        $dumper->dump($post);
+        //$dumper = new VarDumper();
+        //$dumper->dump($post);
         //
         //В этом коде нет необходимости, так как комментарии и так подтянутся из базы
         /*$comments = $this->getDoctrine()->getRepository('Beluha\BlogBundle:Comment')->findBy(
                 [
                     'post' => $post
                 ]);*/
-        $comment = new CommentType();
-        $form = $this->createForm(CommentType::class);
+        //$comment = new CommentType();
+        //$form = $this->createForm(CommentType::class);
         
         return [
             'post' => $post,
-            'form' => $form->createView()
+            //'form' => $form->createView()
             //'comments' =>$comments
             ];
     }
@@ -117,5 +117,45 @@ class PostController extends Controller
             'post' => $post,
             'form' => $form->createView()            
         ];
+    }
+    
+        /**
+     * Show a post by tag
+     * 
+     * @param string $slug
+     * 
+     * @throws NotFoundHttpException
+     * @return array
+     * 
+     * @Route("/tag/{slug}", name="blog_tag")
+     */
+    public function showByTagAction($slug)
+    {
+
+        $tagRepo = $this->getDoctrine()->getRepository('BeluhaBlogBundle:Tag');
+        $ids = $tagRepo->getResourceIdsForTag('tag', $slug);
+
+        $repository = $this->getDoctrine()
+            ->getRepository('BeluhaBlogBundle:Post');
+        $qb = $repository->createQueryBuilder('p');
+        $query = $qb->add('where', $qb->expr()->in('p.id', $ids))->getQuery();
+        $posts = $query->getResult();
+
+        $dumper = new VarDumper();
+        $dumper->dump($posts);
+        
+        $latestPosts = $this->getDoctrine()->getRepository('BeluhaBlogBundle:Post')->findLatest(5);
+
+        if(null === $posts){
+            throw $this->createNotFoundException('Постов с такими тэгами не найдено');
+        }
+
+
+
+        
+        return $this->render('BeluhaBlogBundle:Post:index.html.twig',[
+            'posts'         => $posts,
+            'latestPosts'   => $latestPosts
+        ]);
     }
 }

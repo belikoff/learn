@@ -8,6 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Beluha\BlogBundle\Entity\Post;
+use Beluha\BlogBundle\Entity\Category;
 use Beluha\SecurityBundle\Entity\User;
 
 /**
@@ -48,6 +49,14 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface, C
         $manager->persist($user);
         
         $tagManager = $this->container->get('fpn_tag.tag_manager');
+        
+        $rootCategory = new Category();
+        $rootCategory->setTitle('Главная');
+        $webCategory = new Category();
+        $webCategory->setTitle('Web-разработка');
+        $webCategory->setParent($rootCategory);
+        $manager->persist($rootCategory);
+        $manager->persist($webCategory);
         
         $posts = [];
         
@@ -104,6 +113,7 @@ Open a command console, enter your project directory and execute the following c
         
         foreach ($posts as $post){
             $post->setAuthor($user);
+            $post->setCategory($webCategory);
             $manager->persist($post);
         }
         $post = null;

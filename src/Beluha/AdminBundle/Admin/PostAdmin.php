@@ -18,15 +18,21 @@ use Sonata\FormatterBundle\Form\Type\SimpleFormatterType;
  */
 class PostAdmin extends Admin
 {
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('title')
-            ->add('body')
-            /*->add('body', 'sonata_simple_formatter_type', array(
-                'format' => 'richhtml'
-            )) */
-            ->add('author', EntityType::class, ['class' => 'BeluhaSecurityBundle:User', 'choice_label' => 'getUsername' ])
+            ->add('body', null, [
+                'attr' => [
+                    'format' => 'richhtml',
+                    'class' => 'ckeditor'
+                ]
+            ])
+            /* ->add('body', 'sonata_simple_formatter_type', array(
+              'format' => 'richhtml'
+              )) */
+            ->add('author', EntityType::class, ['class' => 'BeluhaSecurityBundle:User', 'choice_label' => 'getUsername'])
             ->add('keywords')
             ->add('description');
     }
@@ -43,6 +49,6 @@ class PostAdmin extends Admin
             ->addIdentifier('title')
             ->add('author', null, [
                 'associated_property' => 'username',
-                ]);
+        ]);
     }
 }

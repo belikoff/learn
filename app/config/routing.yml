@@ -1,39 +1,37 @@
-Beluha_Blog:
-    resource: "@BeluhaBlogBundle/Controller/TagController.php"
-    type:     annotation
-    prefix:   /beluha/tag
+homepage:
+    path: /
+    defaults: { _controller: BeluhaBlogBundle:Post:index }
     
-Beluha_Blog_quote:
-    resource: "@BeluhaBlogBundle/Controller/QuoteController.php"
-    type:     annotation
-
-Beluha_Blog_author_quote:
-    resource: "@BeluhaBlogBundle/Controller/AuthorQuoteController.php"
-    type:     annotation
+authorquote_quote_random:
+    path: /random-quote
+    defaults:  { _controller: BeluhaBlogBundle:Quote:getRamdomQuote }
+    requirements:
+        _method:  POST
 
 Beluha_Blog_Post:
-    resource: "@BeluhaBlogBundle/Resources/config/routing.yml"
-    prefix:   /beluha
-    
-app:
-    resource: "@BeluhaAppBundle/Controller/"
+    resource: "@BeluhaBlogBundle/Controller/PostController.php"
     type:     annotation
+    prefix:   /blog
+  
+#Security
 login:
-    path:   /login
+    path:   /admin/login
     defaults:  { _controller: BeluhaSecurityBundle:Security:login }
 login_check:
-    path:   /login_check
+    path:   /admin/login_check
     defaults:  { _controller: BeluhaSecurityBundle:Security:login_check }
 registration:
-    path: /registration
+    path: /admin/registration
     defaults:  { _controller: BeluhaSecurityBundle:Security:registration }
 logout:
-    path: /logout
+    path: /admin/logout
+    
 static_page:
     path: /about
     defaults:
         _controller: FrameworkBundle:Template:template
         template: 'BeluhaAppBundle:Static:about.html.twig'
+#bundles        
 gregwar_captcha_routing:
     resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"
 admin:
@@ -43,3 +41,14 @@ _sonata_admin:
    resource: .
    type: sonata_admin
    prefix: /admin
+
+   
+################# Maybe sometimes
+
+#Beluha_Blog_quote:
+    #resource: "@BeluhaBlogBundle/Controller/QuoteController.php"
+    #type:     annotation
+
+#Beluha_Blog_author_quote:
+    #resource: "@BeluhaBlogBundle/Controller/AuthorQuoteController.php"
+    #type:     annotation
