@@ -9,8 +9,9 @@ authorquote_quote_random:
         _method:  POST
 
 Beluha_Blog_Post:
-    resource: "@BeluhaBlogBundle/Controller/PostController.php"
-    type:     annotation
+    resource: "@BeluhaBlogBundle/Resources/config/routing.yml"
+    #resource: "@BeluhaBlogBundle/Controller/PostController.php"
+    #type:     annotation
     prefix:   /blog
   
 #Security

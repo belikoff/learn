@@ -92,7 +92,23 @@ class Post extends Timestampable implements Taggable
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank
      */
-    private $category;    
+    private $category;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="preview_text", type="text")
+     * @Assert\NotBlank
+     */
+    private $preview_text;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="preview_img", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $preview_img;
 
     public function getTags()
     {
@@ -328,5 +344,53 @@ class Post extends Timestampable implements Taggable
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set previewText
+     *
+     * @param string $previewText
+     *
+     * @return Post
+     */
+    public function setPreviewText($previewText)
+    {
+        $this->preview_text = $previewText;
+
+        return $this;
+    }
+
+    /**
+     * Get previewText
+     *
+     * @return string
+     */
+    public function getPreviewText()
+    {
+        return $this->preview_text;
+    }
+
+    /**
+     * Set previewImg
+     *
+     * @param string $previewImg
+     *
+     * @return Post
+     */
+    public function setPreviewImg($previewImg)
+    {
+        $this->preview_img = $previewImg;
+
+        return $this;
+    }
+
+    /**
+     * Get previewImg
+     *
+     * @return string
+     */
+    public function getPreviewImg()
+    {
+        return $this->preview_img;
     }
 }

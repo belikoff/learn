@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2036923642e429277d47fcb6612423f1",
-    "content-hash": "db394f8a5e7ddbc97d9f034e1b6e03ad",
+    "hash": "7858585d1a085fd04268c6b3a5ae3018",
+    "content-hash": "540a12b4eb16d7f15e79b1a4c49de24c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2361,7 +2361,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/fba67eeacd1c549bc209a3c5416d1594d30bcb58",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3294a3aec754ef5d1a16e9db292eae2e4a509c10",
                 "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58",
                 "shasum": ""
             },
@@ -2569,6 +2569,74 @@
             "time": "2015-09-18 14:40:58"
         },
         {
+            "name": "sonata-project/classification-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataClassificationBundle.git",
+                "reference": "b67092a2b85414c1936ce50602f313f771a0ad8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/b67092a2b85414c1936ce50602f313f771a0ad8a",
+                "reference": "b67092a2b85414c1936ce50602f313f771a0ad8a",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/admin-bundle": "~2.4@dev",
+                "sonata-project/datagrid-bundle": "~2.2@dev",
+                "sonata-project/doctrine-orm-admin-bundle": "~2.4@dev",
+                "symfony/form": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.3|~3.0"
+            },
+            "conflict": {
+                "jms/serializer": "<0.13"
+            },
+            "require-dev": {
+                "friendsofsymfony/rest-bundle": "~1.1",
+                "jms/serializer-bundle": "~0.11",
+                "sonata-project/media-bundle": "~2.2",
+                "symfony/phpunit-bridge": "~2.7|~3.0"
+            },
+            "suggest": {
+                "sonata-project/media-bundle": "~2.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\ClassificationBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataClassificationBundle/contributors"
+                },
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "https://sonata-project.org"
+                }
+            ],
+            "description": "Symfony SonataClassificationBundle",
+            "homepage": "https://sonata-project.org/bundles/classification",
+            "keywords": [
+                "category",
+                "tag",
+                "taxonomy"
+            ],
+            "time": "2015-12-03 16:06:37"
+        },
+        {
             "name": "sonata-project/core-bundle",
             "version": "2.3.10",
             "source": {
@@ -2636,6 +2704,63 @@
                 "sonata"
             ],
             "time": "2015-11-26 19:14:27"
+        },
+        {
+            "name": "sonata-project/datagrid-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataDatagridBundle.git",
+                "reference": "0749e710b936bf84736c648eee16bc45e2c04607"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/0749e710b936bf84736c648eee16bc45e2c04607",
+                "reference": "0749e710b936bf84736c648eee16bc45e2c04607",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/dependency-injection": "~2.3|~3.0",
+                "symfony/form": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.4",
+                "fabpot/php-cs-fixer": "~0.5|~1.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\DatagridBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataDatagridBundle/contributors"
+                },
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "https://sonata-project.org"
+                }
+            ],
+            "description": "Symfony SonataDatagridBundle",
+            "homepage": "https://sonata-project.org/bundles/datagrid",
+            "keywords": [
+                "datagrid",
+                "sonata"
+            ],
+            "time": "2015-12-16 08:53:13"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -2784,7 +2909,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/9431700ed8b8668597f04b52e39f4e1f715af398",
+                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/a25fa5a8131ca14d041f4e2abb22a8ee7d4986e1",
                 "reference": "9431700ed8b8668597f04b52e39f4e1f715af398",
                 "shasum": ""
             },
@@ -4003,7 +4128,9 @@
         "stof/doctrine-extensions-bundle": 20,
         "sonata-project/admin-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
-        "sonata-project/formatter-bundle": 20
+        "sonata-project/formatter-bundle": 20,
+        "sonata-project/datagrid-bundle": 20,
+        "sonata-project/classification-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -30,6 +30,7 @@
             </p>
         </header>
             <div id="post-container">
+                {{ post.previewText | raw | nl2br}}
                 {{ post.body | raw | nl2br}}           
             <div>
     </article>

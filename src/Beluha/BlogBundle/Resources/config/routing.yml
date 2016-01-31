@@ -1,0 +1,17 @@
+blog_show:
+    path: /
+    defaults:  { _controller: BeluhaBlogBundle:Post:index }
+    
+beluha_blog_post_show:
+    path: /{slug}
+    defaults:  { _controller: BeluhaBlogBundle:Post:show }
+    
+beluha_blog_post_createcomment:
+    path: /{slug}/create-comment
+    defaults:  { _controller: BeluhaBlogBundle:Post:createComment }
+    requirements:
+        _method:  POST
+        
+blog_tag:
+    path: /tag/{slug}
+    defaults:  { _controller: BeluhaBlogBundle:Post:showByTag }

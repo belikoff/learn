@@ -14,3 +14,14 @@
   static_page                                ANY      ANY      ANY    /about                
  ------------------------------------------ -------- -------- ------ ---------------------------------------------------- 
 
+  homepage                                   ANY      ANY      ANY    /
+  authorquote_quote_random                   ANY      ANY      ANY    /random-quote
+  blog_show                                  ANY      ANY      ANY    /blog/
+  beluha_blog_post_show                      ANY      ANY      ANY    /blog/{slug}
+  bst_createcommeluha_blog_poent             ANY      ANY      ANY    /blog/{slug}/create-comment
+  blog_tag                                   ANY      ANY      ANY    /blog/tag/{slug}
+  login                                      ANY      ANY      ANY    /admin/login
+  login_check                                ANY      ANY      ANY    /admin/login_check
+  registration                               ANY      ANY      ANY    /admin/registration
+  logout                                     ANY      ANY      ANY    /admin/logout
+  static_page                                ANY      ANY      ANY    /about

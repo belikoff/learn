@@ -13,5 +13,5 @@
                 </a>
             </p>
     </header>
-                <p>{{ post.body | truncate(300)}} &#8212;<a href="{{ path('beluha_blog_post_show', { slug: post.slug })}}">{{ 'read.more' | trans }} &raquo;</a></p>
+                <p>{#{{ post.body | truncate(300)}}#} {{ post.previewText | raw | nl2br }}&#8212;<a href="{{ path('beluha_blog_post_show', { slug: post.slug })}}">{{ 'read.more' | trans }} &raquo;</a></p>
 </article>
