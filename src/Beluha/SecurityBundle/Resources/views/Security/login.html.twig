@@ -1,8 +1,9 @@
 {% extends 'BeluhaBlogBundle::base.html.twig' %}
 
 {% block stylesheets %}
-             <link href="{{ asset('bundles/beluhasecurity/css/login.css') }}" rel="stylesheet"
-                  type="text/css"/>   
+    {% stylesheets '@BeluhaSecurityBundle/Resources/public/css/login.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 {% block title %}Beluha::admin::login{% endblock %}
 {% block quote %}
@@ -14,7 +15,7 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 <div class="loginmodal-container">
-    <h1>Ты уверен что тебя здесь ждут?</h1><br>
+    <h1>Ты уверен, что тебя здесь ждут?</h1><br>
     <form action="{{ path('login_check') }}" method="post" class="">
                 <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Ваш логин" />
                 <input type="password" id="password" name="_password" placeholder="Пароль" />

@@ -1,0 +1,36 @@
+.quote_block_main
+{
+
+}
+.quote_block
+{
+    font-size: 10px;
+}
+.quote_block blockquote
+{
+    font-size: 12px;
+}
+.quote_block p
+{
+    font-style: italic;
+    right: 10px;
+    position: relative;
+    left: 50px;
+    top: -10px;
+    font-weight: bolder;
+    
+}
+.quote_block_refresh_container a
+{
+    text-decoration: none;
+    font-size: 9px;
+    
+}
+.quote_table ul,.quote_table ul, .container-body ul
+{
+    list-style-type: none;
+}
+.quote_table a
+{
+    text-decoration: none;
+}
